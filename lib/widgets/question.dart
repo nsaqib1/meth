@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import '../utils/question_generator.dart';
+import 'package:provider/provider.dart';
+import '../data/app_data.dart';
 
 class Question extends StatelessWidget {
   const Question({
     Key? key,
-    required this.questionGenerator,
   }) : super(key: key);
-
-  final QuestionGenerator questionGenerator;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,7 @@ class Question extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         width: double.infinity,
         child: Text(
-          questionGenerator.questionText,
+          context.watch<AppData>().questionText,
           style: const TextStyle(fontSize: 34),
         ),
       ),
